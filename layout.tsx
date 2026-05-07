@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/layout/header";
-import Footer from "@/components/layout/footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -11,16 +9,17 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "PrimeServe — B2B Facility & Office Supplies Marketplace",
+  title: "PrimeServe | B2B Facility Supplies & Procurement Platform",
   description:
-    "India's trusted B2B marketplace for housekeeping materials, cleaning chemicals, office stationery, and pantry items. Bulk pricing, 45-day credit, and Pro plan discounts.",
+    "PrimeServe helps hotels, restaurants, hospitals, offices, IT companies, MNCs, and workspaces order facility supplies, cleaning chemicals, pantry items, washroom products, and office essentials from one platform.",
   keywords: [
-    "B2B supplies",
-    "facility management",
-    "office supplies",
-    "housekeeping materials",
+    "B2B facility supplies",
+    "facility procurement platform",
+    "housekeeping supplies",
     "cleaning chemicals",
-    "bulk pricing",
+    "washroom supplies",
+    "office pantry supplies",
+    "facility spend audit",
   ],
 };
 
@@ -31,11 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-      </body>
+      <body className="min-h-screen bg-white antialiased">{children}</body>
     </html>
   );
 }
