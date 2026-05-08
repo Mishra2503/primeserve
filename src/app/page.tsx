@@ -1,5 +1,5 @@
-import PrimeServeWebsite from "@/components/PrimeServeWebsite";
+import PrimeServeMobileWebsite from "@/components/PrimeServeMobileWebsite";
 
 export default function Page() {
-  return <PrimeServeWebsite />;
+  return <PrimeServeMobileWebsite />;
 }
