@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useMemo, useState } from "react";
 
 const WEB_STORE_URL = "https://primeservefms.vercel.app/";
@@ -117,9 +118,20 @@ function Header({ active, setActive }: { active: PageId; setActive: SetActive })
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-        <button type="button" onClick={() => go("home")} className="flex items-center gap-3">
-          <span className="grid h-10 w-10 place-items-center rounded-2xl bg-[#071225] font-black text-white">P</span>
-          <span className="text-xl font-black tracking-tight text-[#071225]">Prime<span className="text-[#12C7B7]">Serve</span></span>
+        <button
+          type="button"
+          onClick={() => go("home")}
+          className="group flex shrink-0 items-center rounded-2xl p-1.5 transition hover:bg-[#EFFFFD]/70 focus:outline-none focus:ring-4 focus:ring-[#12C7B7]/15"
+          aria-label="PrimeServe home"
+        >
+          <Image
+            src="/primeserve-logo.png"
+            alt="PrimeServe"
+            width={1172}
+            height={312}
+            priority
+            className="h-9 w-auto max-w-[11.5rem] object-contain sm:h-10 sm:max-w-[13rem] lg:h-11 lg:max-w-[15rem]"
+          />
         </button>
 
         <nav className="hidden items-center gap-1 lg:flex">
@@ -334,7 +346,7 @@ function Input({ label, placeholder }: { label: string; placeholder: string }) {
 
 function Footer({ setActive }: { setActive: SetActive }) {
   const go = (id: PageId) => { setActive(id); window.scrollTo({ top: 0, behavior: "smooth" }); };
-  return <footer className="border-t border-slate-200 bg-white"><div className="mx-auto grid max-w-7xl gap-8 px-5 py-12 md:grid-cols-[1.1fr_.9fr_.9fr] lg:px-8"><div><div className="text-2xl font-black text-[#071225]">Prime<span className="text-[#12C7B7]">Serve</span></div><p className="mt-4 max-w-md leading-7 text-slate-600">B2B platform for facility supplies, housekeeping products, cleaning chemicals, office supplies, GST documents, and spend tracking.</p></div><div><p className="font-black text-[#071225]">Website</p><div className="mt-4 grid gap-2">{pages.map((page) => <button type="button" key={page.id} onClick={() => go(page.id)} className="text-left text-sm font-bold text-slate-600 hover:text-[#079889]">{page.label}</button>)}</div></div><div><p className="font-black text-[#071225]">Actions</p><div className="mt-4 flex flex-col gap-3"><Button onClick={() => go("contact")}>Get Free Spend Audit</Button><Button variant="outline" href={WEB_STORE_URL}>Open Web Store</Button></div></div></div><div className="border-t border-slate-200 px-5 py-5 text-center text-sm font-semibold text-slate-500">© 2026 PrimeServe Facility Solutions. All rights reserved.</div></footer>;
+  return <footer className="border-t border-slate-200 bg-white"><div className="mx-auto grid max-w-7xl gap-8 px-5 py-12 md:grid-cols-[1.1fr_.9fr_.9fr] lg:px-8"><div><button type="button" onClick={() => go("home")} className="inline-flex rounded-2xl p-1.5 transition hover:bg-[#EFFFFD]/70 focus:outline-none focus:ring-4 focus:ring-[#12C7B7]/15" aria-label="PrimeServe home"><Image src="/primeserve-logo.png" alt="PrimeServe" width={1172} height={312} className="h-12 w-auto max-w-[14rem] object-contain sm:h-14 sm:max-w-[16rem]" /></button><p className="mt-5 max-w-md leading-7 text-slate-600">B2B platform for facility supplies, housekeeping products, cleaning chemicals, office supplies, GST documents, and spend tracking.</p></div><div><p className="font-black text-[#071225]">Website</p><div className="mt-4 grid gap-2">{pages.map((page) => <button type="button" key={page.id} onClick={() => go(page.id)} className="text-left text-sm font-bold text-slate-600 hover:text-[#079889]">{page.label}</button>)}</div></div><div><p className="font-black text-[#071225]">Actions</p><div className="mt-4 flex flex-col gap-3"><Button onClick={() => go("contact")}>Get Free Spend Audit</Button><Button variant="outline" href={WEB_STORE_URL}>Open Web Store</Button></div></div></div><div className="border-t border-slate-200 px-5 py-5 text-center text-sm font-semibold text-slate-500">© 2026 PrimeServe Facility Solutions. All rights reserved.</div></footer>;
 }
 
 export default function PrimeServeWebsite() {
