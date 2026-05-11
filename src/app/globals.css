@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./primeserve-brand.css";
 
 @theme inline {
   --color-primary: #1E3A8A;
